@@ -17,6 +17,6 @@ jobs:
       - uses: actions/setup-python@v2  # Set up Python environment
       - run: pip install -r requirements.txt  # Install dependencies
       - run: pytest -v   # Run tests using unittest (discover all test*.py files)
-      - run: python app.py  # Optionally run your Flask app (only if needed for testing)
+      - run: python pytest app.py  # Optionally run your Flask app (only if needed for testing)
 
  
