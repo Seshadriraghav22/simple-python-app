@@ -1,6 +1,5 @@
 name: Flask CI/CD
 
-# Trigger the workflow on push or pull request to the master branch
 on:
   push:
     branches:
@@ -11,11 +10,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Run the job on an Ubuntu runner
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2  # Checkout the repository
       - uses: actions/setup-python@v2  # Set up Python environment
       - run: pip install -r requirements.txt  # Install dependencies
-      - run: python -m unittest discover -s .  # Run tests using unittest (search for test*.py)
-      - run: python app.py  # Run your Flask app (optional if not required for testing)
+      - run: pytest -v   # Run tests using unittest (discover all test*.py files)
+      - run: python app.py  # Optionally run your Flask app (only if needed for testing)
+
+ 
