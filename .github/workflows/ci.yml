@@ -23,6 +23,8 @@ jobs:
 
       - run: pytest -v
 
+      - run: pytest  app.py 
+
   docker:
     runs-on: ubuntu-latest
     needs: build
